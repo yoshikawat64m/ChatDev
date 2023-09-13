@@ -80,6 +80,40 @@ To get started, follow these steps:
    python3 main.py
    ```
 
+## ⚡️ Quickstart With Docker
+
+
+To get started, follow these steps:
+
+1. **Clone the GitHub Repository:** Begin by cloning the repository using the command:
+   ```
+   git clone https://github.com/OpenBMB/ChatDev.git
+   ```
+2. **Build docker image:** Move into the `ChatDev` directory and build docker image:
+   ```
+   docker compose build
+   ```
+3. **Set OpenAI API Key:** Create a .env file. Replace `"your_OpenAI_API_key"` with　your actual API key.
+   ```
+   OPENAI_API_KEY="your_OpenAI_API_key"
+   ```
+5. **Run Your Software:** Use the following command to initiate the building of your software,
+   replacing `[description_of_your_idea]` with your idea's description and `[project_name]` with your desired project
+   name:
+   ```
+   docker compose run --rm chatdev python3 run.py --task "{task_name}" --name {project_name}
+   or
+   make run_task task="{task_name}" name={project_name}
+   ```
+6. **Run Your Software:** Once generated, you can find your software in the `WareHouse` directory under a specific
+   project folder, such as `project_name_DefaultOrganization_timestamp`. Run your software using the following command
+   within that directory:
+   ```
+   docker compose run --rm chatdev bash -c "cd /workspace/WareHouse/${app_name} && python3 main.py"
+   or
+   make run_app app="{app_name}"
+   ```
+
 ## ✨️ Advanced Skills
 
 For more detailed information, please refer to our [Wiki](wiki.md), where you can find:
