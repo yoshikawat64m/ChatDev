@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+
+  chatdev:
+    platform: linux/x86_64
+    build: .
+    command: python3 run.py --task "test" --name "test"
+    ports:
+      - "8000:8000"
+    volumes: 
+      - ./:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DISPLAY=unix$DISPLAY
